@@ -4,6 +4,7 @@ var setUser = require("../../utils/setUser");
 let fs = require('fs');
 let pathLib = require('path')
 let options = {}
+let bcrypt = require('bcrypt')
 options.dbname = "XYM";
 options.collectionName = "user";
 options.url = "mongodb://127.0.0.1:27017";
@@ -19,7 +20,7 @@ router.post('/', async(req, res, next) => {
         newPassword: req.body.newPassword ? bcrypt.hashSync(req.body.newPassword, 10) : req.body.newPassword,
         oldPassword: req.body.oldPassword
     };
-    let newIcon = '';
+    let newIcon = null;
     if (!_id) {
         res.send({
             err: 1,

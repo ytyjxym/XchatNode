@@ -23,7 +23,10 @@ reg = (req, res, next, { username, password, icon, name }, options) => {
                                 res.send({ err: 0, msg: "数据库操作有误" })
                             } else {
                                 req.session["XYM"] = result.insertedId;
-                                res.send({ err: 0, msg: "注册成功" })
+                                data._id = result.insertedId;
+                                delete data.password;
+                                delete data.username;
+                                res.send({ err: 0, msg: "注册成功", data })
                             }
                         })
                     }

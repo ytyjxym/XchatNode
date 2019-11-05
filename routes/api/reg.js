@@ -26,7 +26,7 @@ router.post('/', function(req, res, next) {
             req.files[0].path,
             req.files[0].path + pathLib.parse(req.files[0].originalname).ext
         )
-        icon = '/upload/user/' + '/' + req.files[0].filename + pathLib.parse(req.files[0].originalname).ext
+        icon = '/upload/user/' + req.files[0].filename + pathLib.parse(req.files[0].originalname).ext
     } else {
         icon = '/upload/noimage.png';
     }

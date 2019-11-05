@@ -82,19 +82,34 @@ io.on('connection',
     (socket) => {
         console.log('已连接');
         let id = '';
+        //login
         socket.on('userLogin', (data) => {
             if (userList.find(user => user.id === data.id)) {
-                io.emit('user', userList);
+                userList.find((user, idx) => {
+                    if (user.id === data.id) {
+                        console.log(userList);
+
+                        userList[idx] = data;
+                        io.emit('user', userList);
+                    }
+                });
             } else {
+                io.emit('userEnter', `${data.name}进入聊天室`)
                 id = data.id;
                 userList.push(data)
                 io.emit('user', userList);
             }
         })
+
+        //sendMsg
         socket.on('msg',
             (data) => {
+                data.time = new Date().getTime();
                 io.emit('msg', data);
+                console.log(data);
+
             });
+        //logout
         socket.on('disconnect', () => {
             userList.map((user, idx) => {
                     if (user.id === id) {
