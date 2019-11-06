@@ -1,7 +1,7 @@
 //服务器默认端口配置
 module.exports = {
     local: {
-        port: 3000,
+        port: 80,
         open: true,
     },
     http: {

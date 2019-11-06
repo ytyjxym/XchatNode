@@ -47,10 +47,10 @@ app.use(cookieSession(require("./config/cookieSet")));
 
 
 //静态资源托管
-app.use("/template", express.static(path.join(__dirname, "public", "template")));
+app.use(express.static(path.join(__dirname, "public", "template")));
 app.use("/admin", express.static(path.join(__dirname, "public", "admin")));
 app.use("/upload", express.static(path.join(__dirname, "public", "upload")));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use("/public", express.static(path.join(__dirname, 'public')));
 // app.use(express.static(path.join(__dirname, 'public', 'template')));
 // app.use('/admin', express.static(path.join(__dirname, 'public', 'admin')));
 // app.use(express.static(path.join(__dirname, 'public')));
@@ -99,18 +99,18 @@ app.use('/api/setUser', require("./routes/api/setUser"));
 
 
 
-//微博发布栏接口
-//_limit,_page,
-app.use('/api/get', require('./routes/weibo/get'))
-    //
-app.use('/api/getAll', require('./routes/weibo/getAll'))
+// //微博发布栏接口
+// //_limit,_page,
+// app.use('/api/get', require('./routes/weibo/get'))
+//     //
+// app.use('/api/getAll', require('./routes/weibo/getAll'))
 
-//后端接口
-app.all('/admin/*', require("./routes/admin/publicParams"));
-app.use('/admin/user', require("./routes/admin/user"));
-app.use('/admin/login', require("./routes/admin/login"));
-app.use('/admin/reg', require("./routes/admin/reg"));
-app.use('/admin/setUser', require("./routes/admin/setUser"));
+// //后端接口
+// app.all('/admin/*', require("./routes/admin/publicParams"));
+// app.use('/admin/user', require("./routes/admin/user"));
+// app.use('/admin/login', require("./routes/admin/login"));
+// app.use('/admin/reg', require("./routes/admin/reg"));
+// app.use('/admin/setUser', require("./routes/admin/setUser"));
 
 
 // app.use('/users', usersRouter);

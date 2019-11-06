@@ -87,8 +87,7 @@ io.on('connection',
             if (userList.find(user => user.id === data.id)) {
                 userList.find((user, idx) => {
                     if (user.id === data.id) {
-                        console.log(userList);
-
+                        // console.log(userList);
                         userList[idx] = data;
                         io.emit('user', userList);
                     }
@@ -106,7 +105,7 @@ io.on('connection',
             (data) => {
                 data.time = new Date().getTime();
                 io.emit('msg', data);
-                console.log(data);
+                // console.log(data);
 
             });
         //logout
