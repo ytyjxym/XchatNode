@@ -19,3 +19,11 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw?
+routes\api\banner.js
+routes\api\detail.js
+routes\api\fans.js
+routes\api\follow.js
+routes\api\home.js
+routes\api\publicParams.js
+routes\weibo
+routes\admin

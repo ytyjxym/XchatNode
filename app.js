@@ -82,11 +82,11 @@ app.use(upload.any())
 
 //前端接口
 // app.use('/api', require("./routes/api/loginTest"));
-app.all('/api/*', require("./routes/api/publicParams"));
-app.use('/api/user', require("./routes/api/user"));
-app.use('/api/home', require("./routes/api/home"));
+// app.all('/api/*', require("./routes/api/publicParams"));
+// app.use('/api/user', require("./routes/api/user"));
+// app.use('/api/home', require("./routes/api/home"));
 app.use('/api/addFriend', require("./routes/api/addFriend"));
-app.use('/api/detail', require("./routes/api/detail"));
+// app.use('/api/detail', require("./routes/api/detail"));
 app.use('/api/login', require("./routes/api/login"));
 app.use('/api/logout', require("./routes/api/logout"));
 app.use('/api/reg', require("./routes/api/reg"));
