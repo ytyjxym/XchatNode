@@ -108,6 +108,14 @@ io.on('connection',
                 // console.log(data);
 
             });
+        //p2pMsg
+        socket.on('p2pMsg',
+            (data) => {
+                data.time = new Date().getTime();
+                io.emit('p2pMsg', data);
+                // console.log(data);
+
+            });
         //logout
         socket.on('disconnect', () => {
             userList.map((user, idx) => {
